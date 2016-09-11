@@ -12,20 +12,19 @@ and open the template in the editor.
  
     <body>
          <?php        
-        /* Associates the index.php file with the Student.php file.
-         * Allows functions from Student.php to be called in this file.
+        /* 
+         * index.php file associated with the student.php 
          */
         include('student.php');
         
         /*
          * A storage of students.
          */
-        $students = array();
-        
+        $students = array();        
         
         
         /*
-         * Creation of the first student.
+         * Insert first student.
          */
         $first = new Student();
         $first->surname = "Doe";
@@ -36,11 +35,11 @@ and open the template in the editor.
         $first->add_grade(75);
         $first->add_grade(55);
         
-        //Add student to specificied key
+        //Add the first student to specificied key
         $students['j123'] = $first;
         
         /*
-         * Creation of the second student.
+         * Insert the second student.
          */
         $second = new Student();
         $second->surname = "Einstein";
@@ -52,11 +51,11 @@ and open the template in the editor.
         $second->add_grade(80);
         $second->add_grade(50);
         
-        //Add student to specificied key
-        $students['a456'] = $second;
+        //Add 2nd student to specificied key
+        $students['c456'] = $second;
         
          /*
-         * Creation of the third student - CK Song
+         * Input the third student - CK Song
          */
         $third = new Student();
         $third->surname = "Song";
@@ -64,16 +63,16 @@ and open the template in the editor.
         $third->add_email('student', 'ck@bcit.ca');
         $third->add_grade(100);
         
-        //Add student to specificied key
-        $students['d789'] = $third;
+        //Add 3rd student to specificied key
+        $students['s789'] = $third;
         
         // Sorts the objects in the array by key
         ksort($students);
         
         // Display students
-        foreach ($students as $student)
+        foreach ($students as $student) {
             echo $student->toString();        
-        
+        }
         
         ?>
     </body>
