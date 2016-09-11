@@ -11,8 +11,70 @@ and open the template in the editor.
     </head>
  
     <body>
-        <?php        
-            echo "Hellow out there...I live";
+         <?php        
+        /* Associates the index.php file with the Student.php file.
+         * Allows functions from Student.php to be called in this file.
+         */
+        include('student.php');
+        
+        /*
+         * A storage of students.
+         */
+        $students = array();
+        
+        
+        
+        /*
+         * Creation of the first student.
+         */
+        $first = new Student();
+        $first->surname = "Doe";
+        $first->first_name = "John";
+        $first->add_email('home', 'john@doe.com');
+        $first->add_email('work', 'jdoe@mcdonalds.com');
+        $first->add_grade(65);
+        $first->add_grade(75);
+        $first->add_grade(55);
+        
+        //Add student to specificied key
+        $students['j123'] = $first;
+        
+        /*
+         * Creation of the second student.
+         */
+        $second = new Student();
+        $second->surname = "Einstein";
+        $second->first_name = "Albert";
+        $second->add_email('home', 'albert@braniacs.com');
+        $second->add_email('work1', 'a_einstein@bcit.com');
+        $second->add_email('work2', 'albert@physics.mit.edu');
+        $second->add_grade(95);
+        $second->add_grade(80);
+        $second->add_grade(50);
+        
+        //Add student to specificied key
+        $students['a456'] = $second;
+        
+         /*
+         * Creation of the third student - CK Song
+         */
+        $third = new Student();
+        $third->surname = "Song";
+        $third->first_name = "CK";
+        $third->add_email('student', 'ck@bcit.ca');
+        $third->add_grade(100);
+        
+        //Add student to specificied key
+        $students['d789'] = $third;
+        
+        // Sorts the objects in the array by key
+        ksort($students);
+        
+        // Display students
+        foreach ($students as $student)
+            echo $student->toString();        
+        
+        
         ?>
     </body>
 
